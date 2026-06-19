@@ -1,0 +1,301 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東西新報 電子版</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #f5f1e8;
+      color: #111;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fffdf7;
+      min-height: 100vh;
+      padding: 18px;
+      box-sizing: border-box;
+    }
+
+    header {
+      border-bottom: 4px double #111;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .meta {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+      padding: 4px 0;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 46px;
+      letter-spacing: 0.18em;
+      margin: 10px 0 4px;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      letter-spacing: 0.08em;
+    }
+
+    .top-news {
+      border-bottom: 3px solid #111;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .label {
+      display: inline-block;
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      background: #111;
+      color: #fff;
+      padding: 3px 9px;
+      margin-bottom: 8px;
+    }
+
+    .headline {
+      font-size: 34px;
+      line-height: 1.35;
+      margin: 0 0 10px;
+      font-weight: 900;
+    }
+
+    .lead {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.7;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    article {
+      border-bottom: 1px solid #bbb;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 23px;
+      line-height: 1.45;
+      margin: 0 0 8px;
+      border-left: 6px solid #111;
+      padding-left: 10px;
+    }
+
+    .article-meta {
+      font-family: sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    aside {
+      border-left: 1px solid #ccc;
+      padding-left: 16px;
+    }
+
+    .side-box {
+      border: 1px solid #111;
+      padding: 12px;
+      margin-bottom: 18px;
+      background: #fafafa;
+    }
+
+    .side-box h2 {
+      font-size: 18px;
+      border-left: none;
+      padding-left: 0;
+      border-bottom: 2px solid #111;
+    }
+
+    .factcheck-link {
+      display: block;
+      text-decoration: none;
+      color: #111;
+      border: 3px solid #111;
+      background: #fff3cd;
+      padding: 16px;
+      margin: 18px 0;
+      transition: 0.2s;
+    }
+
+    .factcheck-link:hover {
+      background: #ffe08a;
+      transform: translateY(-2px);
+    }
+
+    .factcheck-link .small {
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .factcheck-link .big {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
+    .news-list {
+      padding-left: 1.2em;
+    }
+
+    .news-list li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 32px;
+      border-top: 3px double #111;
+      padding-top: 12px;
+      font-size: 13px;
+      text-align: center;
+      color: #555;
+    }
+
+    @media (max-width: 700px) {
+      .layout {
+        display: block;
+      }
+
+      h1 {
+        font-size: 34px;
+        letter-spacing: 0.12em;
+      }
+
+      .headline {
+        font-size: 27px;
+      }
+
+      aside {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .meta {
+        font-size: 12px;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="meta">
+        <span>2026年6月20日（土）</span>
+        <span>電子版</span>
+        <span>発行：大藏新聞社</span>
+      </div>
+
+      <h1>東西新報</h1>
+      <div class="subtitle">TOZAI SHIMPO DIGITAL</div>
+    </header>
+
+    <section class="top-news">
+      <span class="label">ミタニ市長選2026</span>
+      <h2 class="headline">市長選、新人3氏が論戦<br />ゴミ焼却炉移転が最大争点</h2>
+      <p class="lead">
+        任期満了に伴うミタニ市長選は、神崎カオル氏、風間ショウ氏、姫島ルイ氏の3氏が立候補し、
+        20日の投開票に向けて選挙戦が大詰めを迎えている。
+      </p>
+    </section>
+
+    <a class="factcheck-link" href="factcheck.html">
+      <span class="small">特設ページ</span>
+      <span class="big">風間ショウ氏をめぐるネット情報を検証<br />ファクトチェックはこちら</span>
+    </a>
+
+    <div class="layout">
+      <main>
+        <article>
+          <div class="article-meta">政治｜ミタニ市長選</div>
+          <h2>「公平性」か「効率性」か　焼却炉移転で3候補が主張</h2>
+          <p>
+            神崎氏は、交通アクセスや用地確保の観点からZ地区での整備継続が最も現実的だと主張する。
+            一方、風間氏は特定地域への負担集中を問題視し、X地区への移転を掲げる。
+            姫島氏は、隣接するハセ市との広域連携による共同処理を訴えている。
+          </p>
+        </article>
+
+        <article>
+          <div class="article-meta">解説｜地域と行政</div>
+          <h2>なぜいつもZ地区なのか　鬱積した不満</h2>
+          <p>
+            ミタニ市では合併後、ゴミ焼却炉、下水処理施設、火葬場などがZ地区に集中してきた。
+            住民からは「またZ地区なのか」「負担だけが集中している」との声が上がっている。
+            今回の市長選は、施設立地だけでなく、地域間の負担をどう分かち合うかを問う選挙でもある。
+          </p>
+        </article>
+
+        <article>
+          <div class="article-meta">社説｜2026.6.20</div>
+          <h2>選挙と偽情報　拡散する前に立ち止まれ</h2>
+          <p>
+            選挙の時期には、候補者の発言を切り取った動画や真偽不明の情報が広がりやすい。
+            投票は、候補者を選ぶだけでなく、数多くの情報の中から何を信じるかを選ぶ行為でもある。
+            気になる情報ほど、出典と文脈を確認したい。
+          </p>
+        </article>
+      </main>
+
+      <aside>
+        <div class="side-box">
+          <h2>候補者の横顔</h2>
+          <ul class="news-list">
+            <li><strong>神崎カオル氏</strong><br />元副市長。行政経験と調整力に強み。</li>
+            <li><strong>風間ショウ氏</strong><br />民間出身の改革派。行政効率化を訴える。</li>
+            <li><strong>姫島ルイ氏</strong><br />元人気キャスター。発信力と対話を重視。</li>
+          </ul>
+        </div>
+
+        <div class="side-box">
+          <h2>注目記事</h2>
+          <ul class="news-list">
+            <li>世相を読み解くキーワード「NIMBY施設」</li>
+            <li>ゴミは「誰かの問題」ではない</li>
+            <li>市長選、投票前に確認したい3つの争点</li>
+          </ul>
+        </div>
+
+        <div class="side-box">
+          <h2>電子版からのお知らせ</h2>
+          <p>
+            東西新報電子版では、ミタニ市長選に関するニュース、解説、社説、ファクトチェックを随時掲載しています。
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      東西新報 電子版<br />
+      © Tozai Shimpo Educational Edition
+    </footer>
+  </div>
+</body>
+</html>
+```
