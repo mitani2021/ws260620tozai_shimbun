@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -129,14 +128,24 @@
       border-bottom: 2px solid #111;
     }
 
+    .section-title {
+      font-family: sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      border-top: 3px double #111;
+      border-bottom: 1px solid #111;
+      padding: 6px 0;
+      margin: 28px 0 18px;
+    }
+
     .factcheck-link {
       display: block;
       text-decoration: none;
       color: #111;
       border: 3px solid #111;
       background: #fff3cd;
-      padding: 16px;
-      margin: 18px 0;
+      padding: 18px;
+      margin: 30px 0 12px;
       transition: 0.2s;
     }
 
@@ -217,21 +226,46 @@
     </header>
 
     <section class="top-news">
-      <span class="label">ミタニ市長選2026</span>
-      <h2 class="headline">市長選、新人3氏が論戦<br />ゴミ焼却炉移転が最大争点</h2>
+      <span class="label">社会・スポーツ</span>
+      <h2 class="headline">六道大学、世界駅伝で復活<br />6年ぶり6度目の優勝</h2>
       <p class="lead">
-        任期満了に伴うミタニ市長選は、神崎カオル氏、風間ショウ氏、姫島ルイ氏の3氏が立候補し、
-        20日の投開票に向けて選挙戦が大詰めを迎えている。
+        駅伝の世界大会で、古豪・六道大学が6年ぶり6度目の優勝を飾った。
+        日本からは寛政大学と六道大学が出場。終盤の山岳区間で六道大学が逆転し、栄冠を手にした。
       </p>
     </section>
 
-    <a class="factcheck-link" href="factcheck.html">
-      <span class="small">特設ページ</span>
-      <span class="big">風間ショウ氏をめぐるネット情報を検証<br />ファクトチェックはこちら</span>
-    </a>
-
     <div class="layout">
       <main>
+        <article>
+          <div class="article-meta">社会｜医療</div>
+          <h2>認知症の画期的新薬、承認に大幅な遅れ　ドラッグラグ問題が再燃</h2>
+          <p>
+            認知症の進行を抑える可能性がある画期的新薬が開発されたものの、国内での承認手続きが大幅に遅れている。
+            患者団体からは「海外で使える薬が日本では使えない」と不安の声が上がっており、
+            いわゆるドラッグラグ問題への対応が改めて問われている。
+          </p>
+        </article>
+
+        <article>
+          <div class="article-meta">国際｜安全保障</div>
+          <h2>B7、シャーロック海峡の安全性確保を議論　会合再開へ</h2>
+          <p>
+            世界先進7か国の会合であるB7は、物流とエネルギー輸送の要衝であるシャーロック海峡の安全性確保について、
+            協議を再開した。各国は航行の自由、海上警備、周辺地域の安定化に向けた連携を確認する見通しだ。
+          </p>
+        </article>
+
+        <div class="section-title">ミタニ市長選2026</div>
+
+        <article>
+          <div class="article-meta">政治｜ミタニ市長選</div>
+          <h2>市長選、新人3氏が論戦　ゴミ焼却炉移転が最大争点</h2>
+          <p>
+            任期満了に伴うミタニ市長選は、神崎カオル氏、風間ショウ氏、姫島ルイ氏の3氏が立候補し、
+            20日の投開票に向けて選挙戦が大詰めを迎えている。最大の争点は、新たなゴミ焼却炉の建設場所である。
+          </p>
+        </article>
+
         <article>
           <div class="article-meta">政治｜ミタニ市長選</div>
           <h2>「公平性」か「効率性」か　焼却炉移転で3候補が主張</h2>
@@ -252,18 +286,22 @@
           </p>
         </article>
 
-        <article>
-          <div class="article-meta">社説｜2026.6.20</div>
-          <h2>選挙と偽情報　拡散する前に立ち止まれ</h2>
-          <p>
-            選挙の時期には、候補者の発言を切り取った動画や真偽不明の情報が広がりやすい。
-            投票は、候補者を選ぶだけでなく、数多くの情報の中から何を信じるかを選ぶ行為でもある。
-            気になる情報ほど、出典と文脈を確認したい。
-          </p>
-        </article>
+        <a class="factcheck-link" href="factcheck.html">
+          <span class="small">東西新報ファクトチェック特設ページ</span>
+          <span class="big">風間ショウ氏をめぐるネット情報を検証<br />ファクトチェックはこちら</span>
+        </a>
       </main>
 
       <aside>
+        <div class="side-box">
+          <h2>本日の主要ニュース</h2>
+          <ul class="news-list">
+            <li>六道大学、世界駅伝6年ぶり6度目V</li>
+            <li>認知症新薬、承認遅れに懸念</li>
+            <li>B7、海峡安全性めぐり協議再開</li>
+          </ul>
+        </div>
+
         <div class="side-box">
           <h2>候補者の横顔</h2>
           <ul class="news-list">
@@ -285,7 +323,7 @@
         <div class="side-box">
           <h2>電子版からのお知らせ</h2>
           <p>
-            東西新報電子版では、ミタニ市長選に関するニュース、解説、社説、ファクトチェックを随時掲載しています。
+            東西新報電子版では、ニュース、解説、社説、ミタニ市長選に関するファクトチェックを随時掲載しています。
           </p>
         </div>
       </aside>
