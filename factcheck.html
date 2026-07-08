@@ -4,129 +4,188 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>東西新報 電子版｜風間ショウ氏をめぐるファクトチェック</title>
-
   <style>
+    :root {
+      --ink: #151515;
+      --paper: #fffdf7;
+      --bg: #f2eee3;
+      --line: #222;
+      --muted: #666;
+      --false: #b00020;
+      --false-bg: #fff0f2;
+      --blue-bg: #eef4ff;
+      --soft: #f7f7f7;
+    }
+
     body {
       margin: 0;
-      background: #f5f1e8;
-      color: #111;
-      font-family: "Yu Mincho", "Hiragino Mincho ProN", "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
       line-height: 1.8;
     }
 
     .page {
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
-      background: #fffdf7;
+      background: var(--paper);
       min-height: 100vh;
       padding: 18px;
       box-sizing: border-box;
     }
 
     header {
-      border-bottom: 4px double #111;
-      padding-bottom: 12px;
-      margin-bottom: 20px;
       text-align: center;
+      border-bottom: 4px double var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
     }
 
     .meta {
-      font-size: 13px;
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid #111;
-      border-bottom: 1px solid #111;
-      padding: 4px 0;
-      margin-bottom: 8px;
+      gap: 10px;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 5px 0;
+      margin-bottom: 10px;
     }
 
-    h1 {
-      font-size: 46px;
-      letter-spacing: 0.18em;
-      margin: 10px 0 4px;
+    .logo {
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 44px;
       font-weight: 900;
+      letter-spacing: 0.18em;
+      margin: 8px 0 2px;
     }
 
     .subtitle {
-      font-size: 15px;
+      font-size: 14px;
       letter-spacing: 0.08em;
+      color: #333;
     }
 
-    .breaking {
-      background: #111;
+    .label {
+      display: inline-block;
+      background: var(--ink);
       color: #fff;
-      padding: 8px 12px;
-      font-weight: bold;
-      margin: 18px 0;
-      font-family: sans-serif;
+      font-weight: 700;
+      padding: 4px 10px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .hero {
+      border-bottom: 1px solid #bbb;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 38px;
+      line-height: 1.35;
+      margin: 0 0 12px;
     }
 
     .lead {
-      font-size: 21px;
-      font-weight: bold;
-      line-height: 1.6;
-      border-bottom: 1px solid #999;
-      padding-bottom: 12px;
-      margin-bottom: 18px;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: minmax(0, 2.2fr) 320px;
       gap: 24px;
     }
 
-    article {
-      border-bottom: 1px solid #bbb;
-      margin-bottom: 22px;
-      padding-bottom: 18px;
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 24px;
     }
 
-    h2 {
-      font-size: 23px;
+    .summary-item {
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .summary-item strong {
+      display: block;
+      color: var(--false);
+      font-size: 13px;
+    }
+
+    article {
+      background: #fff;
+      border: 1px solid #d0d0d0;
+      margin-bottom: 18px;
+      padding: 18px;
+    }
+
+    article h2 {
+      font-size: 22px;
       line-height: 1.45;
-      margin: 0 0 8px;
-      border-left: 6px solid #111;
+      margin: 4px 0 10px;
+      border-left: 7px solid var(--ink);
       padding-left: 10px;
     }
 
     .tag {
       display: inline-block;
-      font-family: sans-serif;
+      border: 1px solid var(--ink);
+      font-weight: 700;
       font-size: 13px;
-      font-weight: bold;
       padding: 2px 8px;
-      margin-bottom: 8px;
-      border: 1px solid #111;
-      background: #f2f2f2;
+      background: #f3f3f3;
     }
 
     .rating {
-      font-family: sans-serif;
-      font-weight: bold;
-      padding: 8px 10px;
-      margin: 10px 0;
-      border: 2px solid #111;
+      border: 2px solid var(--false);
+      background: var(--false-bg);
+      color: var(--false);
+      font-weight: 900;
+      padding: 10px 12px;
+      margin: 12px 0;
+      font-size: 17px;
     }
 
-    .false {
-      background: #ffe5e5;
+    .section {
+      margin-top: 14px;
     }
 
-    .true {
-      background: #e8f5e9;
+    .section h3 {
+      font-size: 16px;
+      margin: 0 0 4px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #ddd;
     }
 
-    .unclear {
-      background: #fff6d5;
+    blockquote {
+      margin: 8px 0;
+      padding: 10px 12px;
+      border-left: 5px solid #999;
+      background: #f7f7f7;
+      font-weight: 700;
+    }
+
+    .reason {
+      background: var(--blue-bg);
+      border: 1px solid #b8c9ef;
+      padding: 12px;
+      margin-top: 12px;
     }
 
     .source-box {
-      background: #f7f7f7;
-      border: 1px solid #ccc;
-      padding: 12px;
-      font-size: 15px;
-      margin-top: 12px;
+      border: 2px solid var(--line);
+      padding: 14px;
+      background: #fafafa;
+      margin-top: 22px;
     }
 
     aside {
@@ -135,53 +194,44 @@
     }
 
     .side-box {
-      border: 1px solid #111;
-      padding: 12px;
-      margin-bottom: 18px;
-      background: #fafafa;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 13px;
+      margin-bottom: 16px;
     }
 
     .side-box h2 {
-      font-size: 18px;
-      border-left: none;
-      padding-left: 0;
-      border-bottom: 2px solid #111;
+      font-size: 17px;
+      margin: 0 0 8px;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 4px;
     }
 
     ul {
       padding-left: 1.2em;
+      margin: 8px 0;
     }
 
-    .notice {
-      font-family: sans-serif;
-      font-size: 14px;
-      background: #eef3ff;
-      border: 1px solid #8aa3d8;
-      padding: 12px;
-      margin-top: 20px;
+    .final-note {
+      background: #f7f7f7;
+      border-top: 4px solid var(--ink);
+      padding: 16px;
+      margin-top: 24px;
+      font-weight: 700;
     }
 
     footer {
-      margin-top: 32px;
-      border-top: 3px double #111;
+      margin-top: 34px;
+      border-top: 3px double var(--line);
       padding-top: 12px;
-      font-size: 13px;
       text-align: center;
+      font-size: 13px;
       color: #555;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 780px) {
       .layout {
         display: block;
-      }
-
-      h1 {
-        font-size: 34px;
-        letter-spacing: 0.12em;
-      }
-
-      .lead {
-        font-size: 18px;
       }
 
       aside {
@@ -189,9 +239,21 @@
         padding-left: 0;
       }
 
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
       .meta {
         font-size: 12px;
-        gap: 8px;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -203,163 +265,337 @@
       <div class="meta">
         <span>2026年6月20日（土）</span>
         <span>電子版</span>
-        <span>発行：大藏新聞社</span>
+        <span>発行：東西新報社</span>
       </div>
-
-      <h1>東西新報</h1>
-      <div class="subtitle">TOZAI SHIMPO DIGITAL<br />ミタニ市長選挙 ファクトチェック</div>
+      <div class="logo">東西新報</div>
+      <div class="subtitle">TOZAI SHIMPO DIGITAL｜ミタニ市長選挙 ファクトチェック特設ページ</div>
     </header>
 
-    <div class="breaking">
-      【検証】風間ショウ氏の公約とされるネット情報を確認
-    </div>
-
-    <p class="lead">
-      ミタニ市長選をめぐり、風間ショウ氏の公約とされる情報がインターネット上で広がっている。<br />
-      東西新報では、選挙公報、候補者発言、関係機関への確認、陣営への取材をもとに検証した。
-    </p>
+    <section class="hero">
+      <span class="label">FACT CHECK</span>
+      <h1>SNSで拡散する「風間ショウ氏の闇の公約7選」を検証</h1>
+      <p class="lead">
+        東西新報調査部は、選挙公報、過去のインタビュー、候補者陣営への取材、
+        市関係部局への確認をもとに、ネット上で広がる7つの疑惑を検証した。
+      </p>
+    </section>
 
     <div class="layout">
       <main>
+        <div class="summary">
+          <div class="summary-item"><strong>事実無根</strong>給食費の値上げ</div>
+          <div class="summary-item"><strong>事実無根</strong>ゴミ袋の有料化</div>
+          <div class="summary-item"><strong>事実無根</strong>市職員数50％削減</div>
+          <div class="summary-item"><strong>事実無根</strong>救急・消防の完全自己負担</div>
+          <div class="summary-item"><strong>事実無根</strong>住民税の大幅引き上げ</div>
+          <div class="summary-item"><strong>事実無根</strong>図書館・公民館の廃止</div>
+          <div class="summary-item"><strong>事実無根</strong>行政サービスの半分を民営化</div>
+        </div>
 
         <article>
           <span class="tag">検証①</span>
           <h2>「給食費を値上げする」は本当か</h2>
-          <div class="rating false">判定：不正確</div>
-          <p>
-            風間氏は学校給食費の値上げを公約として掲げていない。インターネット上では「財政改革を進めるため給食費を値上げする」との情報が拡散しているが、そのような発言や政策文書は確認できなかった。風間氏は市財政の効率化を訴えているものの、給食費の引き上げには言及していない。
-          </p>
+          <div class="rating">判定：事実無根</div>
+
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「風間ショウは当選したら給食費を値上げする」</blockquote>
+          </div>
+
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              東西新報が風間氏の選挙公報、政策集、陣営への取材を確認したところ、
+              給食費の値上げを検討している事実は確認できなかった。
+              給食費に関する値上げ方針、政策文書、具体的な検討資料も確認されていない。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              給食費値上げを示す根拠はなく、拡散している内容は事実に反する。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            風間氏が行政改革や財政の効率化を訴えていることから、
+            「財政改革をするなら、住民負担も増えるはずだ」という推測がSNS上で独り歩きしたとみられる。
+            しかし、給食費値上げを示す事実は確認できなかった。
+          </div>
         </article>
 
         <article>
           <span class="tag">検証②</span>
-          <h2>「ゴミ収集を有料化する」は本当か</h2>
-          <div class="rating true">判定：不正確</div>
-          <p>
-            風間氏は、家庭ごみの有料化については公約として掲げていない。インターネット上では「財政改革を進めるためゴミ収集を有料化する」との情報が拡散しているが、そのような発言や政策文書は確認できなかった。
-          </p>
+          <h2>「ゴミ袋を有料化する」は本当か</h2>
+          <div class="rating">判定：事実無根</div>
+
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「風間ショウはゴミ袋を有料化する」</blockquote>
+          </div>
+
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              風間氏は過去のインタビューで、家庭ごみの有料化について
+              「選択肢として嫌いではない」と述べていた。
+              しかし、今回の市長選でゴミ袋有料化を公約に掲げた事実はなく、
+              導入を表明した発言も確認できなかった。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              過去の一般論としての発言を、「実施を決めている」と断定するのは不正確である。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            インタビューの一部だけが切り取られ、
+            「選択肢として否定しなかった」という発言が
+            「当選後に導入する」という内容に変えられて拡散されたとみられる。
+          </div>
         </article>
 
         <article>
           <span class="tag">検証③</span>
-          <h2>「こども医療費無料化を廃止する」は本当か</h2>
-          <div class="rating false">判定：確認不能</div>
-          <p>
-            風間氏はこども医療費助成制度の廃止について、財源の見直しについて言及したことはあるが、制度そのものを廃止する方針であるかどうかの確認はできなかった。
-          </p>
+          <h2>「市職員数を50％削減する」は本当か</h2>
+          <div class="rating">判定：事実無根</div>
+
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「風間ショウは市職員を半分にする」</blockquote>
+          </div>
+
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              風間氏が掲げているのは、
+              「10年間で新規採用数を抑制し、現在から約200人を削減する」という内容である。
+              ミタニ市は人口約30万人で、現在の市職員数は約2,400人。
+              風間氏の案は、10年間で約2,200人程度にするものであり、
+              削減率は約8％にとどまる。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              実際の公約は「約200人削減」であり、「50％削減」ではない。
+              2,400人の50％削減なら1,200人減となるが、風間氏はそのような方針を示していない。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            「200人削減」という数字だけが独り歩きし、
+            行政改革に不安を持つ投稿者が「職員を半分にする」と誇張して表現した可能性がある。
+            数字の単位や割合を確認しないまま、強い表現だけが拡散したとみられる。
+          </div>
         </article>
 
         <article>
           <span class="tag">検証④</span>
           <h2>「救急・消防を完全自己負担にする」は本当か</h2>
-          <div class="rating unclear">判定：一部は事実だが、説明不足</div>
-          <p>
-            風間氏は、軽症者による救急車の不適切利用を抑制するため、一部のケースで利用者負担の導入を検討すると発言している。しかし、火災対応や救急搬送全体を完全自己負担化するとは述べていない。「完全自己負担」という表現は実際の主張を大きく単純化している。
-          </p>
+          <div class="rating">判定：事実無根</div>
+
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「救急車も消防も、利用した人が全額払うことになる」</blockquote>
+          </div>
+
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              風間氏は過去のインタビューで、軽症者による救急車の不適切利用について
+              「適正利用を考える議論は必要」と述べていた。
+              しかし、救急・消防サービス全体を完全自己負担にする政策は確認できなかった。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              軽症者対策に関する一般的な発言と、
+              救急・消防全体の完全自己負担化はまったく異なる。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            救急車の適正利用に関する発言が、
+            「救急車を有料化する」「消防も自己負担になる」と拡大解釈されたとみられる。
+            一部の言葉が、より不安をあおる表現に置き換えられて広がった可能性がある。
+          </div>
         </article>
 
         <article>
           <span class="tag">検証⑤</span>
           <h2>「住民税を大幅に引き上げる」は本当か</h2>
-          <div class="rating false">判定：不正確</div>
-          <p>
-            風間氏は選挙公約で「住民税は現状維持」と明言している。Ｘ地区への焼却炉移設に伴う費用負担についても、増税ではなく行政改革によって捻出すると説明している。
-          </p>
+          <div class="rating">判定：事実無根</div>
+
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「風間ショウの計画には大増税が隠されている」</blockquote>
+          </div>
+
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              風間氏の政策集、選挙公報、街頭演説要旨を確認したが、
+              住民税の大幅引き上げを検討している事実は確認できなかった。
+              陣営も、住民税引き上げを公約にしていないと説明している。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              住民税の大幅引き上げを示す政策文書や発言は確認されていない。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            焼却炉移設などの大型事業には多額の費用がかかるため、
+            「最終的には増税になるはずだ」という憶測が、
+            「大幅増税を計画している」という断定的な情報に変化した可能性がある。
+          </div>
         </article>
 
         <article>
           <span class="tag">検証⑥</span>
           <h2>「図書館・公民館を廃止する」は本当か</h2>
-          <div class="rating false">判定：確認不能</div>
-          <p>
-            風間氏は図書館や公民館の廃止について、施設運営の効率化や指定管理者制度の活用については言及しているが、施設そのものを廃止する方針かどうかについては確認できなかった。
-          </p>
+          <div class="rating">判定：事実無根</div>
+
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「風間ショウは図書館や公民館をなくす」</blockquote>
+          </div>
+
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              図書館や公民館の廃止を検討している事実は確認できなかった。
+              風間氏は行政サービスの効率化を訴えているが、
+              図書館・公民館の廃止を公約に掲げてはいない。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              施設廃止を示す政策や発言は確認されていない。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            「行政改革」という言葉から、
+            「公共施設が削減されるのではないか」という不安が生まれ、
+            それが「図書館・公民館を廃止する」という具体的なデマに変わったとみられる。
+          </div>
         </article>
 
         <article>
           <span class="tag">検証⑦</span>
           <h2>「行政サービスの半分を民営化する」は本当か</h2>
-          <div class="rating unclear">判定：一部は事実だが、説明不足</div>
-          <p>
-            風間氏は民間企業のノウハウを活用した行政改革を訴えている。しかし、「行政サービスの半分を民営化する」という具体的な目標を示した事実は確認できない。一部業務の外部委託や官民連携の推進と、行政サービス全体の大規模民営化は異なる。
-          </p>
-        </article>
+          <div class="rating">判定：事実無根</div>
 
-        <article>
-          <span class="tag">検証⑧</span>
-          <h2>「大手コンサルティング会社と癒着している」は本当か</h2>
-          <div class="rating false">判定：不正確</div>
-          <p>
-            風間氏は過去に大手コンサルティング会社へ勤務していた経歴を持つ。しかし、特定企業との不適切な関係や利益供与を示す証拠は確認されていない。現時点で「癒着」と断定できる根拠は存在しない。
-          </p>
-        </article>
+          <div class="section">
+            <h3>SNSで拡散した内容</h3>
+            <blockquote>「市役所の仕事の半分を民間企業に売り渡す」</blockquote>
+          </div>
 
-        <article>
-          <span class="tag">検証⑨</span>
-          <h2>「大手コンサルティング会社に移設計画書の作成を発注している」は本当か</h2>
-          <div class="rating false">判定：不正確</div>
-          <p>
-            東西新報がミタニ市環境局施設課に確認したところ、現時点で移設計画書の作成を大手コンサルティング会社へ発注している事実は確認できなかった。風間氏の陣営も明確に否定している。
-          </p>
-        </article>
+          <div class="section">
+            <h3>取材結果</h3>
+            <p>
+              風間氏は、民間企業のノウハウを活用した行政改革や官民連携について言及している。
+              しかし、行政サービスの半分を民営化するという数値目標や政策は確認できなかった。
+            </p>
+          </div>
 
-        <article>
-          <span class="tag">検証⑩</span>
-          <h2>「Ｘ地区の地盤は緩いため焼却炉を建設できない」は本当か</h2>
-          <div class="rating false">判定：不正確</div>
-          <p>
-            市が過去に実施した基礎調査では、Ｘ地区内に焼却炉建設が技術的に不可能であるとの結論は示されていない。建設にあたっては地盤改良などの追加対策が必要となる可能性はあるものの、「建設不可能」と断定できる根拠は確認できなかった。
-          </p>
+          <div class="section">
+            <h3>判定理由</h3>
+            <p>
+              官民連携や一部業務の外部委託と、
+              「行政サービスの半分を民営化する」という主張は異なる。
+            </p>
+          </div>
+
+          <div class="reason">
+            <strong>なぜこのデマが生まれたのか</strong><br />
+            風間氏の経歴や官民連携の主張が、
+            「民間企業に市政を任せる」というイメージと結びつき、
+            「半分を民営化する」という過激な表現に変化したとみられる。
+          </div>
         </article>
 
         <div class="source-box">
-          <strong>主な確認資料：</strong><br />
-          ・ミタニ市長選挙 選挙公報<br />
-          ・風間ショウ氏の街頭演説要旨<br />
-          ・ミタニ市環境局施設課への確認<br />
-          ・風間ショウ氏陣営への取材<br />
-          ・ミタニ市の過去の基礎調査資料
+          <strong>主な確認資料・取材先</strong>
+          <ul>
+            <li>ミタニ市長選挙 選挙公報</li>
+            <li>風間ショウ氏 政策集</li>
+            <li>風間ショウ氏の過去のインタビュー</li>
+            <li>風間ショウ氏陣営への取材</li>
+            <li>ミタニ市総務局・財政課・環境局への確認</li>
+          </ul>
         </div>
 
-        <div class="notice">
-
+        <div class="final-note">
+          今回検証した7件について、いずれも「風間ショウ氏が実施すると表明した政策」と裏付けられる事実は確認できなかった。
+          過去の発言の一部を切り取ったもの、実際の数字を誇張したもの、根拠のない推測を政策であるかのように示したものが多く確認された。
         </div>
       </main>
 
       <aside>
         <div class="side-box">
-          <h2>ファクトチェックの見方</h2>
+          <h2>今回の判定</h2>
+          <p>
+            7件すべてについて、政策文書・候補者発言・関係者取材から裏付けを確認できなかったため、
+            <strong>「事実無根」</strong>と判定した。
+          </p>
+        </div>
+
+        <div class="side-box">
+          <h2>検証の方法</h2>
           <ul>
-            <li><strong>おおむね事実：</strong>主要部分が根拠資料で確認できる</li>
-            <li><strong>一部は事実：</strong>一部は正しいが、説明不足や誤解を招く表現がある</li>
-            <li><strong>不正確：</strong>重要な部分が事実と異なる、または根拠が確認できない</li>
-            <li><strong>確認不能：</strong>現時点で判断に必要な資料が不足している</li>
+            <li>選挙公報の確認</li>
+            <li>政策集の確認</li>
+            <li>過去発言の文脈確認</li>
+            <li>陣営への取材</li>
+            <li>市関係部局への確認</li>
           </ul>
         </div>
 
         <div class="side-box">
           <h2>注意したい情報</h2>
           <ul>
-            <li>発信者が分からない投稿</li>
-            <li>候補者の発言を一部だけ切り取った動画</li>
-            <li>「絶対」「完全に」「隠された真実」など強い表現</li>
-            <li>資料名や出典が示されていない画像</li>
+            <li>発信者が不明な画像</li>
+            <li>発言の一部だけを切り取った動画</li>
+            <li>「隠された真実」などの強い表現</li>
+            <li>数字の根拠が示されていない投稿</li>
           </ul>
         </div>
 
         <div class="side-box">
-          <h2>東西新報社の確認方針</h2>
+          <h2>数字を見るポイント</h2>
           <p>
-            本紙は、候補者本人の発言、選挙公報、行政資料、関係機関への確認、陣営への取材をもとに検証します。
-            SNS上の情報は、出典と文脈を確認したうえで判断します。
+            「200人削減」と「50％削減」は大きく異なる。
+            人口30万人規模の市で職員数が約2,400人の場合、
+            200人削減は約8％であり、半減ではない。
           </p>
         </div>
 
         <div class="side-box">
           <h2>拡散する前に</h2>
           <p>
-            気になる情報を見つけたときは、すぐに共有せず、出典・発信者・元の発言を確認しましょう。
-            選挙では、事実に基づいて判断することが大切です。
+            気になる情報を見つけたときは、すぐに共有せず、
+            元の発言、政策文書、数字の根拠を確認することが重要だ。
           </p>
         </div>
       </aside>
@@ -367,7 +603,7 @@
 
     <footer>
       東西新報 電子版｜ミタニ市長選挙ファクトチェック特設ページ<br />
-      © Tozai Shimpo Educational Edition
+      © Tozai Shimpo
     </footer>
   </div>
 </body>
